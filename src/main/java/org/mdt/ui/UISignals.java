@@ -46,9 +46,6 @@ public class UISignals extends JFrame {
         Dimension dimensionButton = new Dimension(128, 128);
         redButton = new RoundedButton(dimensionButton);
         redButton.setBackground(Color.red);
-        redButton.setBorderPainted(false);
-        redButton.setFocusPainted(false);
-        redButton.setOpaque(false);
         panel.add(redButton);
         yellowButton = new RoundedButton(dimensionButton);
         yellowButton.setBackground(Color.yellow);

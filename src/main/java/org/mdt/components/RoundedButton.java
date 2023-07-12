@@ -8,6 +8,9 @@ public class RoundedButton extends javax.swing.JButton {
     public RoundedButton(Dimension size) {
         setPreferredSize(size);
         setContentAreaFilled(false);
+        setBorderPainted(false);
+        setFocusPainted(false);
+        setOpaque(false);
     }
 
     @Override
@@ -38,11 +41,15 @@ public class RoundedButton extends javax.swing.JButton {
 
     @Override
     public boolean contains(int x, int y) {
-        if (shape == null
-                || !shape.getBounds().equals(getBounds())) {
+        if (shape == null || !shape.getBounds().equals(getBounds())) {
             shape = new java.awt.geom.Ellipse2D.Float(0, 0, getWidth(), getHeight());
         }
         return shape.contains(x, y);
+    }
+
+    protected void paintBorder(Graphics g) {
+        g.setColor(getForeground());
+        g.drawOval(0, 0, getSize().width - 1, getSize().height - 1);
     }
 
 
